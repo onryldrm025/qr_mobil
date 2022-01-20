@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: TextFormField(
                             controller: scNo,
                             validator: (value) {
-                              if (value?.length != 5 || value!.isEmpty) {
+                              if (value?.length != 4 || value!.isEmpty) {
                                 return 'Sicil no eksik veya yanlış!';
                               }
                               return null;
@@ -206,7 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 prefs?.setString('scNo', scNo.text);
                                 prefs?.setString('company', company.text);
 
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => QrScreen(

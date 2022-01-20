@@ -26,7 +26,7 @@ class _QrScreenState extends State<QrScreen> {
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.clear();
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyHomePage()),
                 );
@@ -39,7 +39,7 @@ class _QrScreenState extends State<QrScreen> {
         child: QrImage(
           backgroundColor: Colors.white,
           data:
-              '{"sicilismi":"${widget.name}","sicilkodu":"${widget.scNo}","sirketkodu": "$widget.sirket"}',
+              '{"sicilismi":"${widget.name}","sicilkodu":"${widget.scNo}","sirketkodu": "${widget.sirket}"}',
           version: QrVersions.auto,
           size: MediaQuery.of(context).size.width * 0.8,
         ),
